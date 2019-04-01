@@ -4,10 +4,15 @@
     "@babylonjs/materials": "^4.0.0-alpha.18",
     "lodash": "^4.17.11"
   },
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "deploy": "webpack && cp -f gh-pages dist/ && gh-paged -s dist",
+    "prettier": "prettier --write src/*"
+  },
   "devDependencies": {
+    "gh-pages": "^2.0.1",
     "prettier": "^1.16.4",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
   }
 }
