@@ -101,6 +101,7 @@ function island(size) {
   const heights = new Array(size * size);
   let scale = 20;
   function rnd() {
+    // return (Math.random() - Math.random() + Math.random() - Math.random() + Math.random() - Math.random() + Math.random() - Math.random()) * scale / 2
     return (Math.random() - 0.5) * scale;
   }
   heights[0] = rnd();
@@ -109,7 +110,7 @@ function island(size) {
   heights[(size + 1) * (size - 1)] = rnd();
 
   for (let step = (size - 1) / 2; step > 0; step >>= 1) {
-    scale *= 0.49;
+    scale *= 0.48;
     for (let z = step; z < size; z += 2 * step) {
       for (let x = step; x < size; x += 2 * step) {
         heights[x + step + z * size] =
