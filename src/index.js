@@ -2,6 +2,7 @@ import { Engine } from "@babylonjs/core/Engines/engine";
 import { Scene } from "@babylonjs/core/scene";
 import { Vector3 } from "@babylonjs/core/Maths/math";
 import { FreeCamera } from "@babylonjs/core/Cameras/freeCamera";
+import { ArcRotateCamera } from "@babylonjs/core/Cameras/arcRotateCamera";
 import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight";
 import { Mesh } from "@babylonjs/core/Meshes/mesh";
 import { VertexData } from "@babylonjs/core/Meshes/mesh.vertexData";
@@ -14,8 +15,17 @@ const canvas = document.getElementById("renderCanvas");
 const engine = new Engine(canvas);
 var scene = new Scene(engine);
 
-var camera = new FreeCamera("camera1", new Vector3(6, 10, -20), scene);
-camera.setTarget(Vector3.Zero());
+//var camera = new FreeCamera("camera1", new Vector3(6, 10, -20), scene);
+//camera.setTarget(Vector3.Zero());
+
+var camera = new ArcRotateCamera(
+  "Camera",
+  1,
+  1,
+  25,
+  new Vector3(0, 0, 0),
+  scene
+);
 camera.attachControl(canvas, true);
 
 var light = new HemisphericLight("light1", new Vector3(-10, 1, 5), scene);
